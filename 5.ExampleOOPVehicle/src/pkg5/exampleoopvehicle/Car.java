@@ -8,10 +8,10 @@ package pkg5.exampleoopvehicle;
  *
  * @author jufeq
  */
-public class Car extends Vehiculo {
-    
+public class Car extends Vehicle {
+
     private int vehicleType; // 1: Gas - 2: Hybrid - 3: Electric 
-    
+
     public Car() {
     }
 
@@ -27,6 +27,21 @@ public class Car extends Vehiculo {
     public void setVehicleType(int vehicleType) {
         this.vehicleType = vehicleType;
     }
-    
-    
+
+    @Override
+    public void shiftGears(GearEnum gearEnum, GearBox box) {
+        if (box == GearBox.AUTOMATIC) {
+            if (gearEnum == GearEnum.UP) {
+                System.out.println("Car: " + this.getBrand() + " BikeUp atomatic Gear");
+            } else {
+                System.out.println("Car: " + this.getBrand() + " BikeDown atomatic Gear");
+            }
+        } else {
+            if (gearEnum == GearEnum.UP) {
+                System.out.println("Car: " + this.getBrand() + " BikeUp manually Gear");
+            } else {
+                System.out.println("Car: " + this.getBrand() + " BikeDown manually Gear");
+            }
+        }
+    }
 }

@@ -8,17 +8,17 @@ package pkg5.exampleoopvehicle;
  *
  * @author jufeq
  */
-public class Vehiculo {
+public abstract class Vehicle {
 
     private int year;
     private String color;
     private String brand;
     private String model;
 
-    public Vehiculo() {
+    public Vehicle() {
     }
 
-    public Vehiculo(int year, String color, String brand, String model) {
+    public Vehicle(int year, String color, String brand, String model) {
         this.year = year;
         this.color = color;
         this.brand = brand;
@@ -56,4 +56,6 @@ public class Vehiculo {
     public void setModel(String model) {
         this.model = model;
     }
+    
+    public abstract void shiftGears(GearEnum gearEnum, GearBox box);
 }
