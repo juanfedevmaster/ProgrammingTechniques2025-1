@@ -17,6 +17,7 @@ public class GitExample {
         System.out.println("Esto es una prueba de GIT");
         System.out.println("GIT Commit ejemplo");
         System.out.println("New Change");
+        System.out.println("New Change2");
     }
     
 }
