@@ -4,7 +4,12 @@
  */
 package pkg13.loginexamplewithfiles;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
+import loginexample.Entities.EnumInternaFrames;
 
 /**
  *
@@ -14,8 +19,28 @@ public class Main extends javax.swing.JFrame {
     
     // Attributes
     private InternalFrameLogin internalFrameLogin;
-    
+    private InternalFrameRegisterUser internalFrameRegisterUser;
+    private InternalFrameAccessoriosV2 internalFrameAccessoriosV2;
+
     // Gets and Sets
+    
+    public InternalFrameAccessoriosV2 getInternalFrameAccesorios() {
+        return internalFrameAccessoriosV2;
+    }
+
+    public void setInternalFrameAccesorios(InternalFrameAccessoriosV2 internalFrameAccessoriosV2) {
+        this.internalFrameAccessoriosV2 = internalFrameAccessoriosV2;
+    }
+    
+    public InternalFrameRegisterUser getInternalFrameRegisterUser() {
+        return internalFrameRegisterUser;
+    }
+
+    public void setInternalFrameRegisterUser(InternalFrameRegisterUser internalFrameRegisterUser) {
+        this.internalFrameRegisterUser = internalFrameRegisterUser;
+    }
+    
+    
     public InternalFrameLogin getInternalFrameLogin() {
         return internalFrameLogin;
     }
@@ -37,7 +62,7 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Main() throws IOException, Exception {
         initComponents();
         InitianComponentsMain();
     }
@@ -55,6 +80,8 @@ public class Main extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         functionsMenu = new javax.swing.JMenu();
         loginMenuItem = new javax.swing.JMenuItem();
+        registerUserMenuItem = new javax.swing.JMenuItem();
+        accesoriosMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
@@ -73,6 +100,24 @@ public class Main extends javax.swing.JFrame {
             }
         });
         functionsMenu.add(loginMenuItem);
+
+        registerUserMenuItem.setMnemonic('o');
+        registerUserMenuItem.setText("New user Login");
+        registerUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerUserMenuItemActionPerformed(evt);
+            }
+        });
+        functionsMenu.add(registerUserMenuItem);
+
+        accesoriosMenuItem.setMnemonic('o');
+        accesoriosMenuItem.setText("Accesorios");
+        accesoriosMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accesoriosMenuItemActionPerformed(evt);
+            }
+        });
+        functionsMenu.add(accesoriosMenuItem);
 
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Exit");
@@ -125,7 +170,11 @@ public class Main extends javax.swing.JFrame {
 
     private void loginMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginMenuItemActionPerformed
         if(internalFrameLogin == null){
-            internalFrameLogin = new InternalFrameLogin();
+            try {
+                internalFrameLogin = new InternalFrameLogin();
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         if(!internalFrameLogin.isVisible()){
@@ -137,6 +186,40 @@ public class Main extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_loginMenuItemActionPerformed
+
+    private void registerUserMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerUserMenuItemActionPerformed
+        if(internalFrameRegisterUser == null){
+            try {
+                internalFrameRegisterUser = new InternalFrameRegisterUser();
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(!internalFrameRegisterUser.isVisible()){
+            if(internalFrameRegisterUser.isClosed()){
+                desktopPane.add(internalFrameRegisterUser);
+            }
+            internalFrameRegisterUser.show();
+        }
+    }//GEN-LAST:event_registerUserMenuItemActionPerformed
+
+    private void accesoriosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accesoriosMenuItemActionPerformed
+        if(internalFrameAccessoriosV2 == null){
+            try {
+                internalFrameAccessoriosV2 = new InternalFrameAccessoriosV2();
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(!internalFrameAccessoriosV2.isVisible()){
+            if(internalFrameAccessoriosV2.isClosed()){
+                desktopPane.add(internalFrameAccessoriosV2);
+            }
+            internalFrameAccessoriosV2.show();
+        }
+    }//GEN-LAST:event_accesoriosMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,21 +251,67 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                try {
+                    new Main().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
     
-    private void  InitianComponentsMain(){
+    private void  InitianComponentsMain() throws IOException, Exception{
         if(internalFrameLogin == null){
             internalFrameLogin = new InternalFrameLogin();
         }
         
+        if(internalFrameRegisterUser == null){
+            internalFrameRegisterUser = new InternalFrameRegisterUser();
+        }
+        if(internalFrameAccessoriosV2 == null){
+            internalFrameAccessoriosV2 = new InternalFrameAccessoriosV2();
+        }
+        
         desktopPane.add(internalFrameLogin);
+        desktopPane.add(internalFrameRegisterUser);
+        desktopPane.add(internalFrameAccessoriosV2);
+    }
+    
+    private void abrirInternalFrame(JInternalFrame internalFrame, EnumInternaFrames enumFrames){
+        if(internalFrame == null){
+            try {
+                
+                switch (enumFrames) {
+                    case InternalFrameAccesorios:
+                        internalFrame = new InternalFrameAccesorios();
+                        break;
+                    case InternalFrameLogin:
+                        internalFrame = new InternalFrameLogin();
+                    case InternalFrameRegisterUser:
+                        internalFrame = new InternalFrameRegisterUser();
+                    default:
+                        throw new AssertionError();
+                }
+                
+                
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(!internalFrame.isVisible()){
+            if(internalFrame.isClosed()){
+                desktopPane.add(internalFrame);
+            }
+            internalFrame.show();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JMenuItem accesoriosMenuItem;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem exitMenuItem;
@@ -190,6 +319,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem loginMenuItem;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem registerUserMenuItem;
     // End of variables declaration//GEN-END:variables
     
 }

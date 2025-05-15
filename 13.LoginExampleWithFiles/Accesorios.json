@@ -1,0 +1,148 @@
+[
+  {
+    "codigo": "A123",
+    "nombre": "Tornillo",
+    "cantidad": 50,
+    "material": "Acero inoxidable"
+  },
+  {
+    "codigo": "B456",
+    "nombre": "Tuerca",
+    "cantidad": 30,
+    "material": "Hierro galvanizado"
+  },
+  {
+    "codigo": "C789",
+    "nombre": "Arandela",
+    "cantidad": 100,
+    "material": "Aluminio"
+  },
+  {
+    "codigo": "789",
+    "nombre": "Perno",
+    "cantidad": 20,
+    "material": "Titanio"
+  },
+  {
+    "codigo": "E890",
+    "nombre": "Clavo",
+    "cantidad": 200,
+	 "material": "Acero al carbono"
+  },{
+    "codigo": "A123",
+    "nombre": "Tornillo",
+    "cantidad": 50,
+    "material": "Acero inoxidable"
+  },
+  {
+    "codigo": "B456",
+    "nombre": "Tuerca",
+    "cantidad": 30,
+    "material": "Hierro galvanizado"
+  },
+  {
+    "codigo": "C789",
+    "nombre": "Arandela",
+    "cantidad": 100,
+    "material": "Aluminio"
+  },
+  {
+    "codigo": "789",
+    "nombre": "Perno",
+    "cantidad": 20,
+    "material": "Titanio"
+  },
+  {
+    "codigo": "E890",
+    "nombre": "Clavo",
+    "cantidad": 200,
+	 "material": "Acero al carbono"
+  },{
+    "codigo": "A123",
+    "nombre": "Tornillo",
+    "cantidad": 50,
+    "material": "Acero inoxidable"
+  },
+  {
+    "codigo": "B456",
+    "nombre": "Tuerca",
+    "cantidad": 30,
+    "material": "Hierro galvanizado"
+  },
+  {
+    "codigo": "C789",
+    "nombre": "Arandela",
+    "cantidad": 100,
+    "material": "Aluminio"
+  },
+  {
+    "codigo": "789",
+    "nombre": "Perno",
+    "cantidad": 20,
+    "material": "Titanio"
+  },
+  {
+    "codigo": "E890",
+    "nombre": "Clavo",
+    "cantidad": 200,
+	 "material": "Acero al carbono"
+  },{
+    "codigo": "A123",
+    "nombre": "Tornillo",
+    "cantidad": 50,
+    "material": "Acero inoxidable"
+  },
+  {
+    "codigo": "B456",
+    "nombre": "Tuerca",
+    "cantidad": 30,
+    "material": "Hierro galvanizado"
+  },
+  {
+    "codigo": "C789",
+    "nombre": "Arandela",
+    "cantidad": 100,
+    "material": "Aluminio"
+  },
+  {
+    "codigo": "789",
+    "nombre": "Perno",
+    "cantidad": 20,
+    "material": "Titanio"
+  },
+  {
+    "codigo": "E890",
+    "nombre": "Clavo",
+    "cantidad": 200,
+	 "material": "Acero al carbono"
+  },{
+    "codigo": "A123",
+    "nombre": "Tornillo",
+    "cantidad": 50,
+    "material": "Acero inoxidable"
+  },
+  {
+    "codigo": "B456",
+    "nombre": "Tuerca",
+    "cantidad": 30,
+    "material": "Hierro galvanizado"
+  },
+  {
+    "codigo": "C789",
+    "nombre": "Arandela",
+    "cantidad": 100,
+    "material": "Aluminio"
+  },
+  {
+    "codigo": "789",
+    "nombre": "Perno",
+    "cantidad": 20,
+    "material": "Titanio"
+  },
+  {
+    "codigo": "E890",
+    "nombre": "Clavo",
+    "cantidad": 200,
+	 "material": "Acero al carbono"
+  }
+]

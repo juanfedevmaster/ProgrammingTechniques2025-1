@@ -4,6 +4,7 @@
  */
 package pkg13.loginexamplewithfiles;
 
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import loginexample.BusinessLogic.ServiceLogin;
 
@@ -28,7 +29,7 @@ public class InternalFrameLogin extends javax.swing.JInternalFrame {
     /**
      * Creates new form InternalFrameLogin
      */
-    public InternalFrameLogin() {
+    public InternalFrameLogin() throws IOException {
         initComponents();
         serviceLogin = new ServiceLogin();
     }
@@ -56,6 +57,11 @@ public class InternalFrameLogin extends javax.swing.JInternalFrame {
         lblUserName.setText("User name:");
 
         txtUserName.setToolTipText("User Name");
+        txtUserName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUserNameFocusLost(evt);
+            }
+        });
 
         txtPassword.setToolTipText("Password");
 
@@ -104,7 +110,7 @@ public class InternalFrameLogin extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         if (!txtUserName.getText().trim().equals("") || !txtPassword.getText().trim().equals("")) {
             var userValid = serviceLogin.validateUserAndPassword(txtUserName.getText().trim(), txtPassword.getText().trim());
@@ -122,6 +128,10 @@ public class InternalFrameLogin extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtUserNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserNameFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserNameFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
