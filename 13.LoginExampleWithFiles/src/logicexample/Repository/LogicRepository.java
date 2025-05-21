@@ -20,7 +20,7 @@ import loginexample.Entities.Login;
 public class LogicRepository {
 
     private final File file;
-    public static final String PATH = "D:\\GIT\\ProgrammingTechniques2025-1\\13.LoginExampleWithFiles\\Login.txt";
+    public static final String PATH = "C:\\UdeA Proyectos\\GIT\\ProgrammingTechniques2025-1\\13.LoginExampleWithFiles\\Login.txt";
 
     public LogicRepository() throws IOException {
         file = new File(PATH);
