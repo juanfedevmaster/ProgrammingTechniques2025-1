@@ -6,6 +6,7 @@ package loginexample.BusinessLogic;
 
 import java.io.IOException;
 import logicexample.Repository.LogicRepository;
+import logicexample.Repository.LoginRepositoryMongoDb;
 import loginexample.Entities.Login;
 
 /**
@@ -15,13 +16,16 @@ import loginexample.Entities.Login;
 public class ServiceLogin {
 
     private LogicRepository logicRepository;
+    private LoginRepositoryMongoDb loginRepository;
 
     public ServiceLogin() throws IOException {
         logicRepository = new LogicRepository();
+        loginRepository = new LoginRepositoryMongoDb();
     }
 
     public boolean validateUserAndPassword(String username, String password) {
-        var logins = logicRepository.getLogins();
+        //var logins = logicRepository.getLogins();
+        var logins = loginRepository.getLogins();
 
         for (var login : logins) {
             if (login.getUsername().equals(username) && login.getPassword().equals(password)) {
@@ -33,7 +37,8 @@ public class ServiceLogin {
     }
 
     public boolean registerUser(Login login) throws IOException, Exception {
-        var logins = logicRepository.getLogins();
+        //var logins = logicRepository.getLogins();
+        var logins = loginRepository.getLogins();
         var userExist = false;
 
         for (var loginTmp : logins) {
@@ -42,7 +47,7 @@ public class ServiceLogin {
             }
         }
 
-        return logicRepository.registerUser(login);
+        return loginRepository.createLogin(login);
     }
 
     public boolean userExistInTheDataBase(String userName) {

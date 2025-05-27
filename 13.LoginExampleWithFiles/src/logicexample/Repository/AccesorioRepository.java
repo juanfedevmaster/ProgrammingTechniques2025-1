@@ -16,7 +16,7 @@ import loginexample.Entities.Accesorio;
  * @author jufeq
  */
 public class AccesorioRepository {
-    private final String path = "D:\\GIT\\ProgrammingTechniques2025-1\\13.LoginExampleWithFiles\\Accesorios.json";
+    private final String path = "C:\\UdeA Proyectos\\GIT\\ProgrammingTechniques2025-1\\13.LoginExampleWithFiles\\Accesorios.json";
     private FileReader reader;
     
     public AccesorioRepository() throws FileNotFoundException{

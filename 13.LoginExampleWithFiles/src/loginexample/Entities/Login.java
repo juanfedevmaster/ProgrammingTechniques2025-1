@@ -4,6 +4,8 @@
  */
 package loginexample.Entities;
 
+import org.bson.Document;
+
 /**
  *
  * @author jufeq
@@ -36,5 +38,15 @@ public class Login {
         this.password = password;
     }
     
-    
+    public Document toDocument() {
+        return new Document("username", this.username)
+                .append("password", this.password);
+    }
+
+    public static Login fromDocument(Document doc) {
+        return new Login(
+                doc.getString("username"),
+                doc.getString("password")
+        );
+    }
 }
