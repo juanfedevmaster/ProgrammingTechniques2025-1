@@ -40,6 +40,14 @@ public class VehiculoServicio {
 
         return vehiculoRepositorio.updateVehiculo(vehiculo, vehiculoOriginal);
     }
+    
+    public boolean deleteVehiculo(String nombre, String marca) throws Exception{
+        
+        if (nombre.isBlank() || marca.isBlank()) {
+            throw new IllegalArgumentException("La marca del vehículo no puede ser nula o vacia");
+        }
+        return vehiculoRepositorio.deleteVehiculo(nombre,marca);
+    }
 
 
     private boolean vehiculoValido(Vehiculo vehiculo) {

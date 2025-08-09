@@ -49,33 +49,41 @@ public class SvVehiculos extends HttpServlet {
         VehiculoServicio vehiculoServicio = new VehiculoServicio();
 
         try {
-            vehiculos = vehiculoServicio.getVehiculos();
-
             if (tieneFiltros) {
                 String filtros[] = request.getParameter("filtro").split(";");
 
                 switch (filtros[0]) {
                     case "Brand":
+                        vehiculos = vehiculoServicio.getVehiculos();
+
                         vehiculos = vehiculos.stream()
                                 .filter(x -> x.getBrand().equals(filtros[1]))
                                 .toList();
                         break;
                     case "Name":
+                        vehiculos = vehiculoServicio.getVehiculos();
+
                         vehiculos = vehiculos.stream()
                                 .filter(x -> x.getName().equals(filtros[1]))
                                 .toList();
                         break;
                     case "Type":
+                        vehiculos = vehiculoServicio.getVehiculos();
+
                         vehiculos = vehiculos.stream()
                                 .filter(x -> x.getType().equals(filtros[1]))
                                 .toList();
                         break;
                     case "Year Introduce":
+                        vehiculos = vehiculoServicio.getVehiculos();
+
                         vehiculos = vehiculos.stream()
                                 .filter(x -> x.getYearIntroduced() == Integer.parseInt(filtros[1]))
                                 .toList();
                         break;
                     case "Editar":
+                        vehiculos = vehiculoServicio.getVehiculos();
+
                         Vehiculo vehiculoFiltrado = vehiculos.stream()
                                 .filter(x -> x.getName().equals(filtros[1]))
                                 .findFirst().get();
@@ -85,7 +93,16 @@ public class SvVehiculos extends HttpServlet {
                         dispatcherEditar.forward(request, response);
 
                         return;
+                    case "Eliminar":
+                        String nombre = request.getParameter("nombre");
+                        String marca = request.getParameter("marca");
+                        vehiculoServicio.deleteVehiculo(nombre, marca);
+
+                        vehiculos = vehiculoServicio.getVehiculos();
+                        break;
                 }
+            } else {
+                vehiculos = vehiculoServicio.getVehiculos();
             }
 
             request.setAttribute("vehiculos", vehiculos);
@@ -135,7 +152,7 @@ public class SvVehiculos extends HttpServlet {
             vehiculoOriginal.setName(request.getParameter("nombreVehiculo-o"));
             vehiculoOriginal.setType(request.getParameter("tipoVehiculo-o"));
             vehiculoOriginal.setYearIntroduced(Integer.parseInt(request.getParameter("yearIntroduccion-o")));
-            
+
             try {
                 boolean resultado = vehiculoServicio.updateVehiculo(vehiculo, vehiculoOriginal);
                 if (resultado) {
@@ -145,7 +162,7 @@ public class SvVehiculos extends HttpServlet {
                 request.setAttribute("mensaje", "Error: " + ex.getMessage());
             }
         }
-        
+
         response.sendRedirect("SvVehiculos");
 
     }

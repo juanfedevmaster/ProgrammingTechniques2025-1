@@ -52,7 +52,7 @@
                                 </td>
                                 <td>
                                     <a class="btn btn-primary" href="SvVehiculos?filtro=Editar;<%= vehiculo.getName()%>" role="button">Editar</a>
-                                    <a class="btn btn-danger" href="#" role="button">Eliminar</a>
+                                    <a class="btn btn-danger" href="SvVehiculos?filtro=Eliminar&nombre=<%= vehiculo.getName()%>&marca=<%= vehiculo.getBrand()%> " role="button">Eliminar</a>
                                 </td>
                             </tr>                
                             <% }%>

@@ -13,6 +13,7 @@ import com.mongodb.client.model.Updates;
 import static com.mongodb.client.model.Updates.combine;
 import java.util.ArrayList;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 /**
  *
@@ -55,20 +56,34 @@ public class VehiculoRepositorio {
     }
 
     public boolean updateVehiculo(Vehiculo vehiculo, Vehiculo vehiculoOriginal) throws Exception {
-        try{
-            
-            
-            vehiculoCollection.updateOne(Filters.eq("name",vehiculoOriginal.getName()),
-                    combine(Updates.set("name",vehiculo.getName())
-                            ,Updates.set("brand",vehiculo.getBrand())
-                            ,Updates.set("type",vehiculo.getType())
-                            ,Updates.set("yearIntroduced",vehiculo.getYearIntroduced())));
-            
-            System.out.println("El vehículo se actualizo correctamente");            
-            
+        try {
+
+            vehiculoCollection.updateOne(Filters.eq("name", vehiculoOriginal.getName()),
+                    combine(Updates.set("name", vehiculo.getName()),
+                            Updates.set("brand", vehiculo.getBrand()),
+                            Updates.set("type", vehiculo.getType()),
+                            Updates.set("yearIntroduced", vehiculo.getYearIntroduced())));
+
+            System.out.println("El vehículo se actualizo correctamente");
+
         } catch (Exception exe) {
             throw new Exception("Ha ocurrido un error, contacte al Admin: " + exe.getMessage());
         }
+        return true;
+    }
+
+    public boolean deleteVehiculo(String nombre, String marca) throws Exception {
+        try {
+            Bson filter1 = Filters.eq("name", nombre);
+            Bson filter2 = Filters.eq("brand", marca);
+
+            Bson filtros = Filters.and(filter1, filter2);
+
+            vehiculoCollection.deleteOne(filtros);
+        } catch (Exception exe) {
+            throw new Exception("Ha ocurrido un error, contacte al Admin: " + exe.getMessage());
+        }
+
         return true;
     }
 }
