@@ -30,6 +30,8 @@ public class CellPhoneNumbers {
         numbers.add("301765432");
         numbers.add("3223345566");
         numbers.add("3009988776");
+        numbers.add("4009988778");
+        numbers.add("7009988779");
 
         // \b3\d{9}\b
         Pattern pattern = Pattern.compile("\\b3\\d{9}\\b");
